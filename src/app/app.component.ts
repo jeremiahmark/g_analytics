@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-declare var gtag : any;
+import { AnalyticsService } from './services/analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +9,11 @@ declare var gtag : any;
 export class AppComponent {
   title = 'gAnalytics';
 
+  constructor(private analyticsService: AnalyticsService) {}
+
   sendEvent() {
     console.log('Event sent');
-    gtag('event', 'click', {
-      'event_category': 'engagement',
-      'event_label': 'send_event'
-    });
+    this.analyticsService.trackEvent('SCROLL_TO_TOP_CLICKED', 'User scrolled to top of page', 'User Interaction');
+    console.log('Event finished');
   }
 }

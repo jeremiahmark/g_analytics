@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AnalyticsService } from './services/analytics.service';
 
 @Component({
@@ -6,10 +6,14 @@ import { AnalyticsService } from './services/analytics.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'gAnalytics';
 
   constructor(private analyticsService: AnalyticsService) {}
+
+  ngOnInit() {
+    this.sendEvent();
+  }
 
   sendEvent() {
     console.log('Event sent');

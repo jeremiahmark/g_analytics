@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+declare var gtag : any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,9 +12,9 @@ export class AppComponent {
 
   sendEvent() {
     console.log('Event sent');
-    // gtag('event', 'click', {
-    //   'event_category': 'engagement',
-    //   'event_label': 'send_event'
-    // });
+    gtag('event', 'click', {
+      'event_category': 'engagement',
+      'event_label': 'send_event'
+    });
   }
 }

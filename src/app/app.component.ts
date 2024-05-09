@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gAnalytics';
+
+  sendEvent() {
+    console.log('Event sent');
+    // gtag('event', 'click', {
+    //   'event_category': 'engagement',
+    //   'event_label': 'send_event'
+    // });
+  }
 }
